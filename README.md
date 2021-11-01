@@ -103,7 +103,7 @@ During execution you will need to enter encryption password, please save it to t
 
 After successful execution you should see following information:
 
-`
+```
 Added alias my-validator for address atest1vakldhfalksdjhflksajdhfkjashdfkljhsad.
 Added alias my-validator-rewards for address atest1v4eaksdfkahdlkfjhasldkjhflakjs.
 
@@ -114,8 +114,7 @@ The validator's addresses and keys were stored in the wallet:
   Consensus key "my-validator-consensus-key"
   Staking reward key "my-validator-rewards-key"
 The ledger node has been setup to use this validator's address and consensus key.
-
-`
+```
 
 ### Step 11.4 - restart you node
 
