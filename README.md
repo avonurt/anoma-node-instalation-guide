@@ -1,5 +1,7 @@
 # anoma-node-instalation-guide
 
+Link to the official documentation: https://docs.anoma.network/v0.2.0/index.html
+
 Here are the list of steps that were executed on `Ubuntu 20.04` version to run Anoma node
 
 ## Step 1 - install all needed packages
@@ -30,7 +32,9 @@ When you are in the `anoma` folder you should execute following command:
 
 `git checkout v0.2.0`
 
-## Step 5 - copy `wasm` folder to the `$HOME` direcory: `cp -a $HOME/anoma/wasm $HOME/wasm`
+## Step 5 - copy `wasm` folder to the `$HOME` direcory 
+
+`cp -a $HOME/anoma/wasm $HOME/wasm`
 
 ## Step 6 - install Anoma from the source
 
