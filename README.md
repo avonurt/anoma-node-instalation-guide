@@ -75,3 +75,8 @@ Wait for the node to be synced
 ## Step 10 - Initialize an account
 
 `anoma client init-account --alias my-new-acc --public-key my-key --source my-key`
+
+After successful execution you should see something like this:
+
+`The transaction initialized 1 new account
+Added alias my-new-acc for address atest1kjdslahfaksjdhfajdhfkjadshfjkdfakjdhfakjlakdhfjhakdjhadkjfhaksdfh'
