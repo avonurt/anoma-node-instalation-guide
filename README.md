@@ -83,4 +83,50 @@ Added alias my-new-acc for address atest1kjdslahfaksjdhfajdhfkjadshfjkdfakjdhfak
 
 ## Step 11 - Interect with PoS 
 
-`---TO BE UPDATED-----`
+### Step 11.1 - get some tokens from the faucet
+
+`anoma client transfer --source faucet --target my-new-acc --signer my-new-acc --token XAN --amount 1000`
+
+### Step 11.2 - check the balance
+
+`anoma client balance --token XAN --owner my-new-acc`
+
+You should see `XAN: 1000`
+
+### Step 11.3 - register a validator
+
+`anoma client init-validator --alias my-validator --source my-new-acc`
+
+`my-validator` is a name of your validator
+
+During execution you will need to enter encryption password, please save it to the save place.
+
+After successful execution you should see following information:
+
+`
+Added alias my-validator for address atest1vakldhfalksdjhflksajdhfkjashdfkljhsad.
+Added alias my-validator-rewards for address atest1v4eaksdfkahdlkfjhasldkjhflakjs.
+
+The validator's addresses and keys were stored in the wallet:
+  Validator address "my-validator"
+  Staking reward address "my-validator-rewards"
+  Validator account key "my-validator-key"
+  Consensus key "my-validator-consensus-key"
+  Staking reward key "my-validator-rewards-key"
+The ledger node has been setup to use this validator's address and consensus key.
+
+`
+
+### Step 11.4 - restart you node
+
+You should restart previously running `anoma ledger` process
+
+### Step 11.5 - delegate tokens to the validator node
+
+`anoma client bond --source my-new-acc --validator my-validator --amount 900.00`
+
+You can query your delegations:
+
+`anoma client bonds --owner my-new-acc`
+
+
