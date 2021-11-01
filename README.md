@@ -80,3 +80,7 @@ After successful execution you should see something like this:
 
 `The transaction initialized 1 new account
 Added alias my-new-acc for address atest1kjdslahfaksjdhfajdhfkjadshfjkdfakjdhfakjlakdhfjhakdjhadkjfhaksdf`
+
+## Step 11 - Interect with PoS 
+
+`---TO BE UPDATED-----`
