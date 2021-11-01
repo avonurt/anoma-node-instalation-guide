@@ -1,8 +1,8 @@
-# anoma-node-instalation-guide DRAFT
+# anoma-node-instalation-guide
 
-Link to the official documentation: https://docs.anoma.network/v0.2.0/index.html
+Link to the official documentation where you could find more details: https://docs.anoma.network/v0.2.0/index.html
 
-Here are the list of steps that were executed on `Ubuntu 20.04` version to run Anoma node
+Here are the list of steps that were tested `Ubuntu 20.04` version to run Anoma node
 
 ## Step 1 - install all needed packages
 
