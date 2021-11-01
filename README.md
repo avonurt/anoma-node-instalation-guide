@@ -1,4 +1,4 @@
-# anoma-node-instalation-guide
+# anoma-node-instalation-guide DRAFT
 
 Link to the official documentation: https://docs.anoma.network/v0.2.0/index.html
 
@@ -69,3 +69,13 @@ It is better to start it in the separate session or using systemd. In this examp
 `tmux new -s anoma`
 
 `anoma ledger`
+
+Wait for the node to be synced
+
+## Step 10 - Initialize an account
+
+`anoma client init-account \
+  --alias my-new-acc \
+  --public-key my-key \
+  --source my-key
+`
