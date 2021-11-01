@@ -2,6 +2,8 @@
 
 Link to the official documentation where you could find more details: https://docs.anoma.network/v0.2.0/index.html
 
+The purpose of this documentation to guid you quickly through a Anoma instalation and test happy path.
+
 Here are the list of steps that were tested on `Ubuntu 20.04` version to run Anoma node
 
 ## Step 1 - install all needed packages
