@@ -79,4 +79,4 @@ Wait for the node to be synced
 After successful execution you should see something like this:
 
 `The transaction initialized 1 new account
-Added alias my-new-acc for address atest1kjdslahfaksjdhfajdhfkjadshfjkdfakjdhfakjlakdhfjhakdjhadkjfhaksdfh'
+Added alias my-new-acc for address atest1kjdslahfaksjdhfajdhfkjadshfjkdfakjdhfakjlakdhfjhakdjhadkjfhaksdf`
