@@ -1,5 +1,8 @@
 # anoma-node-instalation-guide
 
+# [English](#english-version)
+# [Russian](#русская-версия)
+
 # English version
 
 Link to the official documentation where you could find more details: https://docs.anoma.network/v0.2.0/index.html
