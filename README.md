@@ -158,7 +158,7 @@ You can query your delegations:
 
 ## Step 4 - переключаемся в репозитории на нужную версию Anoma
 
-You should enter `anoma` folder using following command:
+Заходим в папку `anoma`:
 
 `cd $HOME/anoma`
 
