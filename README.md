@@ -1,5 +1,7 @@
 # anoma-node-instalation-guide
 
+# English version
+
 Link to the official documentation where you could find more details: https://docs.anoma.network/v0.2.0/index.html
 
 The purpose of this documentation to guid you quickly through a Anoma instalation and test happy path.
@@ -130,4 +132,133 @@ You can query your delegations:
 
 `anoma client bonds --owner my-new-acc`
 
+# Русская версия
+
+Ссылка к официальной документации: https://docs.anoma.network/v0.2.0/index.html
+
+Список действия которые необходимо сделать на `Ubuntu 20.04` для того что бы запустить Anoma ноду
+
+## Step 1 - инсталлируем необходимые пакеты
+
+`sudo apt update && sudo apt upgrade -y`
+
+`sudo apt install make clang pkg-config libssl-dev libclang-dev build-essential git curl ntp jq llvm tmux`
+
+## Step 2 - инсталлируем  Rust язык
+
+`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+
+`source $HOME/.cargo/env`
+
+## Step 3 - клонируем репозиторий
+
+`cd $HOME`
+
+`git clone https://github.com/anoma/anoma.git`
+
+## Step 4 - переключаемся в репозитории на нужную версию Anoma
+
+You should enter `anoma` folder using following command:
+
+`cd $HOME/anoma`
+
+Когда вы находитесь в папке `anoma` вам необходимо выполнить следующую команду:
+
+`git checkout v0.2.0`
+
+## Step 5 - копируем `wasm` папку в `$HOME` директорию
+
+`cp -a $HOME/anoma/wasm $HOME/wasm`
+
+## Step 6 - инсталируем Anoma
+
+Инсталяцию лучше проводить в отдельной сессие. Вы можете использовать `tmux` для создания отдельной сессии: 
+
+`tmux new -s session1`
+
+После создания сессии заходим в папку `anoma`: 
+
+`cd $HOME/anoma`
+
+Выполняем команду: 
+
+`make install`
+
+Ждем окончания инсталляции.
+
+## Step 7 - конфигурируем ноду для тестнетнета Feigenbaum
+
+`cd $HOME`
+
+`anoma client utils join-network --chain-id=anoma-feigenbaum-0.ebb9e9f9013`
+
+## Step 8 - генерируем новый ключ в кошельке
+
+`anoma wallet key gen --alias my-key`
+
+## Step 9 - стартуем Anoma ноду
+
+В этом примере мы будем использовать `tmux` для старта ноды в отдельной сессие.
+
+`tmux new -s anoma`
+
+`anoma ledger`
+
+Ждем синхронизации ноды
+
+## Step 10 - Инициализируем счет
+
+`anoma client init-account --alias my-new-acc --public-key my-key --source my-key`
+
+После удачного выполнения вы должны видеть такое сообщение:
+
+`The transaction initialized 1 new account
+Added alias my-new-acc for address atest1kjdslahfaksjdhfajdhfkjadshfjkdfakjdhfakjlakdhfjhakdjhadkjfhaksdf`
+
+## Step 11 - создание валидатора 
+
+### Step 11.1 - запрашиваем токены
+
+`anoma client transfer --source faucet --target my-new-acc --signer my-new-acc --token XAN --amount 1000`
+
+### Step 11.2 - проверяем баланс
+
+`anoma client balance --token XAN --owner my-new-acc`
+
+Вы должны видеть `XAN: 1000`
+
+### Step 11.3 - регестрируем валидатора
+
+`anoma client init-validator --alias my-validator --source my-new-acc`
+
+`my-validator` - это имя вашего валидатора
+
+При выполнении нужно будет вводить пароль. Сохраните его.
+
+После удачного выполнения вы будете видеть такое сообщение:
+
+```
+Added alias my-validator for address atest1vakldhfalksdjhflksajdhfkjashdfkljhsad.
+Added alias my-validator-rewards for address atest1v4eaksdfkahdlkfjhasldkjhflakjs.
+
+The validator's addresses and keys were stored in the wallet:
+  Validator address "my-validator"
+  Staking reward address "my-validator-rewards"
+  Validator account key "my-validator-key"
+  Consensus key "my-validator-consensus-key"
+  Staking reward key "my-validator-rewards-key"
+The ledger node has been setup to use this validator's address and consensus key.
+```
+
+### Step 11.4 - рестартуем ноду
+
+Необходимо выключить и включить `anoma ledger` процесс
+
+### Step 11.5 - делегируем токены созданному валидатору
+
+`anoma client bond --source my-new-acc --validator my-validator --amount 900.00`
+
+Проверяем что делегация произошла:
+
+`anoma client bonds --owner my-new-acc`
 
